@@ -1,2 +1,2 @@
-testDobot: src/Main.cpp src/DobotPorts/*.cpp
-	g++ src/Main.cpp src/DobotPorts/*.cpp -o testDobot -I.
+testDobot: src/Main.cpp src/DobotPorts/*.cpp src/Utils/*.cpp
+	g++ src/Main.cpp src/DobotPorts/*.cpp src/Utils/*.cpp -o testDobot -I.
