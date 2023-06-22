@@ -14,12 +14,12 @@ class Socket {
                         if (sock<0) throw std::runtime_error("Socket creation error");
                 }
                 Socket() : Socket(socket(AF_INET, SOCK_STREAM, 0)) {}
-                std::string rx() {
+                std::string waitReply() {
                         char buffer[1024] = {0};
                         int n = read( sock , buffer, sizeof(buffer));
                         return std::string(buffer,n);
                 }
-                void tx(std::string s) {
+                void sendMsg(std::string s) {
                         send(sock , s.c_str() , s.length() , 0);
                 }
                 int getSocket() {
