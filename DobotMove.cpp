@@ -1,20 +1,4 @@
-#include "Socket.h"
-#include <iostream>
-#include <unistd.h>
-
-class DobotMove : public Connection{
-    public:
-        std::string ip;
-        int port;
-        DobotMove(std::string ip, int port) : Connection(ip, port){};
-        std::string movJ(float x, float y, float z, float rz);
-        std::string movL(float x, float y, float z, float rz);
-        std::string relMovL(float ox, float oy, float oz);
-        std::string movJog(std::string axisId);
-        std::string clearError();
-        std::string resetRobot();
-        std::string syncRobot();
-};
+#include "DobotMove.hpp"
 
 std::string DobotMove::movJ(float x, float y, float z, float rz){
     DobotMove::sendMsg("MovJ(" + std::to_string(x) + "," + std::to_string(y) + "," + std::to_string(z) + "," + std::to_string(rz) + ")");
