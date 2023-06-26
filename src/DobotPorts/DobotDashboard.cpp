@@ -30,12 +30,12 @@ std::string DobotDashboard::resetRobot(){
     return DobotDashboard::waitReply();
 }
 
-std::string DobotDashboard::digitalInput(int i){
+std::string DobotDashboard::digitalInput(const int &i){
     DobotDashboard::sendMsg("DI(" + std::to_string(i) + ")");
     return DobotDashboard::waitReply();
 }
 
-std::string DobotDashboard::digitalOutput(int i, bool state){
+std::string DobotDashboard::digitalOutput(const int &i, const bool &state){
     if (state == true){
         DobotDashboard::sendMsg("DO(" + std::to_string(i) + ",1)");
     } else {
